@@ -1,0 +1,39 @@
+# ==========================================
+# Multi-stage Dockerfile for Cadbri Backend (Go)
+# ==========================================
+
+# Stage 1: Build static binary
+FROM golang:alpine AS builder
+
+WORKDIR /app
+
+# Install ca-certificates and tzdata for static image
+RUN apk --no-cache add ca-certificates tzdata
+
+# Copy module files and download dependencies
+COPY backend/go.mod backend/go.sum ./
+RUN go mod download
+
+# Copy source code and settings
+COPY backend/ .
+COPY backend/settings.yml ./settings.yml
+
+# Build static binary with zero CGO dependencies and stripped debug symbols
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
+    -ldflags="-s -w -extldflags '-static'" \
+    -o /cadbri ./cmd/server
+
+# Stage 2: Ultra-minimal production container (FROM scratch)
+FROM scratch
+
+# Copy SSL certificates and timezone data
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+COPY --from=builder /usr/share/zoneinfo /usr/share/zoneinfo
+
+# Copy compiled binary and settings
+COPY --from=builder /cadbri /cadbri
+COPY --from=builder /app/settings.yml /settings.yml
+
+EXPOSE 2222
+
+ENTRYPOINT ["/cadbri", "-config", "/settings.yml", "-port", "2222"]

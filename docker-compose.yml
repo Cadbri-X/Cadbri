@@ -1,0 +1,25 @@
+name: cadbri
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: cadbri-backend
+    restart: unless-stopped
+    ports:
+      - "2222:2222"
+    environment:
+      - CADBRI_BIND_ADDRESS=0.0.0.0
+      - CADBRI_PORT=2222
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: cadbri-frontend
+    restart: unless-stopped
+    ports:
+      - "1111:80"
+    depends_on:
+      - backend
