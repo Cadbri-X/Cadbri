@@ -9,7 +9,7 @@
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-v4.0-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker)](https://www.docker.com/)
 [![Privacy](https://img.shields.io/badge/Tracking-Zero%20Logs-success?style=flat-square&logo=shield)](https://github.com/Cadbri-X/Cadbri)
-[![License](https://img.shields.io/badge/License-AGPL--3.0-blue?style=flat-square)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](LICENSE)
 
 *Cadbri is a modern, high-performance metasearch engine that aggregates results from 60+ upstream search engines simultaneously. Built with a concurrent Go backend and a reactive Svelte 5 + TailwindCSS v4 frontend, Cadbri delivers 50+ rich, deduplicated search results per query with absolute zero tracking.*
 
@@ -240,14 +240,14 @@ Cadbri/
 │
 ├── Dockerfile.backend        # Multi-stage scratch Docker build for Go
 ├── docker-compose.yml        # Orchestration for Backend (:2222) & Frontend (:1111)
-└── LICENSE                   # GNU Affero General Public License v3.0
+└── LICENSE                   # Apache License, Version 2.0 (Apache-2.0)
 ```
 
 ---
 
 ## 📄 License
 
-Cadbri is open-source software licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**. See the [LICENSE](LICENSE) file for more information.
+Cadbri is open-source software licensed under the **Apache License, Version 2.0 (Apache-2.0)**. See the [LICENSE](LICENSE) file for more information.
 
 ---
 
