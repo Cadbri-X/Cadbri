@@ -1,6 +1,8 @@
 <div align="center">
 
-# ⚡ Cadbri Search
+<img src="./logo.svg" width="96" height="96" alt="Cadbri Logo" />
+
+# Cadbri Search
 
 **The Ultra-Fast, Privacy-First Metasearch Engine**
 

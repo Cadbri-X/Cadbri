@@ -1,7 +1,7 @@
 # ==============================================================================
 #                     CADBRI SEARCH ENGINE CONFIGURATION
 # ==============================================================================
-# Cadbri is a privacy-first, ultra-fast metasearch engine written in Go and React 19.
+# Cadbri is a privacy-first, ultra-fast metasearch engine written in Go and Svelte 5.
 # This file configures server networking, search preferences, and engine weights.
 # ==============================================================================
 
